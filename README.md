@@ -2,6 +2,8 @@
 
 > A minimal desktop sticky note for macOS. One Python file, zero dependencies.
 
+![Lilac Note screenshot](docs/screenshot.png)
+
 ## Why this exists
 
 Because macOS Widgets are broken.
@@ -62,7 +64,7 @@ That's it. FU macOS Widget.
 ## Install
 
 
-git clone https://github.com/<your-username>/lilac-note.git ~/dev/lilac-note
+git clone https://github.com/lily-lilac/lilac-note.git ~/dev/lilac-note
 cd ~/dev/lilac-note
 uv syncUsage
 Source the shell function file first:
@@ -120,6 +122,8 @@ MIT
 
 Lilac Note（FU macOS Widget）
 一个极简的 macOS 桌面便签。一个 Python 文件，零依赖。
+
+![Lilac Note 截图](docs/screenshot.png)
 
 为什么会有这个东西
 因为 macOS 的 Widget 烂透了。
@@ -184,7 +188,7 @@ tkinter（Homebrew 的 Python 一般自带；缺的话 brew install python-tk）
 
 安装
 
-git clone https://github.com/<你的用户名>/lilac-note.git ~/dev/lilac-note
+git clone https://github.com/lily-lilac/lilac-note.git ~/dev/lilac-note
 cd ~/dev/lilac-note
 uv sync
 
