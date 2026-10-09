@@ -38,7 +38,7 @@ Not a single one of those worked. Not. A. Single. One.
 
 **This isn't my problem. It's Apple's problem.** A multi-trillion-dollar company can't get "show a sticky note on the desktop" or "let a panel be draggable" right on its own operating system. What has Apple been doing? Fancy animations. Thicker and thicker glassmorphism. Redesigns nobody asked for. And basic stability thrown in the trash. If the built-in Widgets can be this broken, they expect us to praise them?
 
-**So I wrote my own.** It's called Lilac Note. Four files: one script written with the Python standard library, one shell function, one `pyproject.toml`, one plain text file for your notes. It doesn't phone home. It doesn't collect data. It doesn't ask for permissions. It doesn't spin. It doesn't get stuck. It doesn't play hide-and-seek with you.
+**So I wrote my own.** It's called Lilac Note. Just a handful of files: one Python script, one shell function, one `pyproject.toml`, and a plain text file for your notes. It doesn't phone home. It doesn't collect data. It doesn't ask for permissions. It doesn't spin. It doesn't get stuck. It doesn't play hide-and-seek with you.
 
 It does exactly one thing: **sits quietly on the desktop and lets you write.**
 
