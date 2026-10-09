@@ -112,7 +112,10 @@ lilac-note/
 │   └── desktop_note.py    # main program
 ├── data/
 │   └── note.md            # note content (git-ignored)
+├── docs/
+│   └── screenshot.png
 ├── note.sh                # shell function
+├── LICENSE
 └── README.md
 Known issues
 overrideredirect(True) on some macOS versions prevents the window from receiving keyboard input. If that happens, delete that line in scripts/desktop_note.py. It'll fall back to a normal window with a native title bar, and everything else still works.
@@ -160,7 +163,7 @@ killall chronod —— 没用
 
 这不是我的问题，是苹果的问题。 一个市值几万亿美元的公司，在自己操作系统的桌面上，连"让一个便签显示出来"、"让一个面板能拖动"这种最基础的事情都做不好。苹果这几年在搞什么？搞花里胡哨的动画，搞越来越厚的玻璃拟态，搞各种用户根本没要求过的"重新设计"，然后把最基本的稳定性丢进垃圾桶。系统自带的小组件能烂成这样，还指望用户夸它？
 
-所以我自己写了一个。 它叫 Lilac Note。它有四个文件：一个用 Python 标准库写的脚本，一个 shell function，一个 pyproject.toml，一个纯文本文件存你的便签。它不联网，不收集数据，不请求任何权限，不转圈，不卡死，不跟你玩躲猫猫。
+所以我自己写了一个。 它叫 Lilac Note。它只有几个文件：一个 Python 脚本，一个 shell function，一个 pyproject.toml，和一个纯文本文件存你的便签。它不联网，不收集数据，不请求任何权限，不转圈，不卡死，不跟你玩躲猫猫。
 
 它做的事情只有一件：安静地贴在桌面上，让你写字。
 
@@ -236,7 +239,10 @@ lilac-note/
 │   └── desktop_note.py    # 主程序
 ├── data/
 │   └── note.md            # 便签内容（git 忽略）
+├── docs/
+│   └── screenshot.png
 ├── note.sh                # shell function
+├── LICENSE
 └── README.md
 已知问题
 overrideredirect(True) 在极少数 macOS 版本上会让窗口无法接收键盘输入。如果遇到，删掉 scripts/desktop_note.py 里那一行即可，会退化成带原生标题栏的普通窗口，其他功能都不受影响。
