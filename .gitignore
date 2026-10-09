@@ -1,0 +1,10 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# 私人便签内容，不上传
+data/note.md
+
+# macOS
+.DS_Store
