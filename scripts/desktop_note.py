@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """极简桌面便签 - 纯 tkinter 实现，零依赖"""
 
+import atexit
+import signal
 import tkinter as tk
 from tkinter import font
 from pathlib import Path
@@ -12,7 +14,7 @@ DATA_DIR.mkdir(exist_ok=True)
 NOTE_FILE = DATA_DIR / "note.md"
 
 FONT_SIZE = 20
-SAVE_DELAY_MS = 500
+SAVE_DELAY_MS = 200
 
 # 莫兰迪丁香紫（Lilac）
 BG_COLOR = "#E4D8E8"
@@ -72,7 +74,7 @@ class DesktopNote:
         if NOTE_FILE.exists():
             self.text.insert("1.0", NOTE_FILE.read_text(encoding="utf-8"))
 
-        self.text.bind("<KeyRelease>", self.schedule_save)
+        self.text.bind("<<Modified>>", self.on_modified)
         self.text.bind("<Double-Button-1>", self.toggle_checkbox)
         self.text.bind("<Command-s>", lambda e: self.save())
         self.text.bind("<Control-s>", lambda e: self.save())
@@ -83,6 +85,9 @@ class DesktopNote:
         self.root.lift()
         self.root.focus_force()
         self.text.focus_set()
+
+        atexit.register(self.save)
+        signal.signal(signal.SIGTERM, lambda *_: (self.save(), self.root.destroy()))
 
         self.root.mainloop()
 
@@ -102,8 +107,18 @@ class DesktopNote:
 
     def save(self):
         content = self.text.get("1.0", "end-1c")
-        NOTE_FILE.write_text(content, encoding="utf-8")
+        tmp = NOTE_FILE.with_suffix(".md.tmp")
+        tmp.write_text(content, encoding="utf-8")
+        if NOTE_FILE.exists():
+            backup = NOTE_FILE.with_suffix(".md.bak")
+            backup.write_text(NOTE_FILE.read_text(encoding="utf-8"), encoding="utf-8")
+        tmp.replace(NOTE_FILE)
         self.save_job = None
+
+    def on_modified(self, event=None):
+        if self.text.edit_modified():
+            self.text.edit_modified(False)
+            self.schedule_save()
 
     def toggle_checkbox(self, event):
         index = self.text.index(f"@{event.x},{event.y}")

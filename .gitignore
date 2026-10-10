@@ -8,3 +8,7 @@ data/note.md
 
 # macOS
 .DS_Store
+
+# 保存过程中的临时文件和备份
+data/note.md.bak
+data/note.md.tmp
